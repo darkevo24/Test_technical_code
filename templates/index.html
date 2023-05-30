@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <form action="/action/1" method="post">
+            <input name="angka" placeholder="Input Angka">
+            <button>Generate Segitiga</button>
+        </form>
+        <form action="/action/2" method="post">
+            <input name="angka" placeholder="Input Angka">
+            <button>Generate Bilangan Ganjil</button>
+        </form>
+        <form action="/action/3" method="post">
+            <input name="angka" placeholder="Input Angka">
+            <button>Generate Bilangan Genap</button>
+        </form>
+    </div>
+    <div>
+        <h2>Result :</h2>
+        {% if angka %}
+        {% if turn == "1" %}
+        {% set count = 0 %}
+        <ul>
+            {% for i in angka %}
+            {% set count = count + 1 %}
+            <li>{{i}} {% for j in range(count) %} 0 {% endfor %}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endif %}
+
+        {% if angka %}
+        {% if turn == "2" %}
+        {% for i in range(angka|int) %}
+        {% if i|int % 2 == 0 %}
+        {{i}}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+
+        {% if angka %}
+        {% if turn == "3" %}
+        {% for i in range(angka|int) %}
+        {% if i|int % 2 != 0 %}
+        {{i}}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>
